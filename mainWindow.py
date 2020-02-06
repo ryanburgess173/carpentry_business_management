@@ -5,6 +5,14 @@ class MainWindow:
     def __init__(self, master):
         self.master = master
         self.master.title("Carpentry Business Management")
+        self.mainMenuBar = Menu(self.master)
+        self.fileMenu = Menu(self.mainMenuBar, tearoff=0)
+        self.fileMenu.add_command(label="About", command=None)
+        self.fileMenu.add_separator()
+        self.fileMenu.add_command(label="Exit", command=None)
+        self.mainMenuBar.add_cascade(label="File", menu=self.fileMenu)
+        self.master.config(menu=self.mainMenuBar)
+
         self.frameLeft = Frame(self.master, bg='cyan')
         self.placeOrderBtn = Button(self.frameLeft, text="Place Order")
 
